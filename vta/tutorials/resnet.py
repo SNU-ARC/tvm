@@ -225,8 +225,8 @@ image_url = 'https://homes.cs.washington.edu/~moreau/media/vta/cat.jpg'
 response = requests.get(image_url)
 image = Image.open(BytesIO(response.content)).resize((224, 224))
 # Show Image
-plt.imshow(image)
-plt.show()
+# plt.imshow(image)
+# plt.show()
 # Set the input
 image = process_image(image)
 m.set_input('data', image)

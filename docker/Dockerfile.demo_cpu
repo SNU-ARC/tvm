@@ -8,7 +8,7 @@ COPY install/ubuntu_install_core.sh /install/ubuntu_install_core.sh
 RUN bash /install/ubuntu_install_core.sh
 
 # Python: basic dependencies
-RUN apt-get update && apt-get install -y python3-dev python3-pip
+RUN apt-get update && apt-get install -y python3-dev python3-pip python3-tk vim
 RUN pip3 install numpy nose-timer cython decorator scipy
 
 # LLVM
@@ -26,6 +26,10 @@ RUN pip3 install mxnet tensorflow keras gluoncv
 # Build TVM
 COPY install/install_tvm_cpu.sh /install/install_tvm_cpu.sh
 RUN bash /install/install_tvm_cpu.sh
+
+# Bash setups
+COPY bashrc /root/.bashrc
+RUN bash -l
 
 # Environment variables
 ENV PYTHONPATH=/usr/tvm/python:/usr/tvm/topi/python:/usr/tvm/nnvm/python/:/usr/tvm/vta/python:${PYTHONPATH}
