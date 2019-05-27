@@ -34,3 +34,5 @@ HOME=${CI_BUILD_HOME}\
     PYTHONPATH=${PYTHONPATH}\
     HOME=${CI_BUILD_HOME}\
     ${COMMAND[@]}
+
+cp /root/.bashrc /workspace/.bashrc
